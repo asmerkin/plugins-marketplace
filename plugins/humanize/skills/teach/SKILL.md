@@ -49,7 +49,7 @@ This applies to anything explained, not only code changes, such as a concept, a 
 
 > ✗ *"Explain this PR."* → "It adds an `ImageSyncResultCode` enum, a `SaveImageSyncResults` job, an `image_sync_results` table and an admin block on the variant page."
 >
-> ✓ This app copies product images from Shopify to KWI, the store's inventory system. Today a job decides per variant whether to update, skip or leave the KWI image, but every decision only goes to the log, so staff can't tell why an image is wrong. This PR records one result per variant and shows it on the variant page in the Shopify admin.
+> ✓ This app copies product images from Shopify to the store's inventory system. Today a job decides per variant whether to update, skip or leave the inventory image, but every decision only goes to the log, so staff can't tell why an image is wrong. This PR records one result per variant and shows it on the variant page in the Shopify admin.
 
 See example 16 in `references/examples.md`.
 
@@ -66,9 +66,9 @@ A one-line finding ("X is derivable state, drop it") is a conclusion, not an exp
 
 See example 15 in `references/examples.md`.
 
-> ✗ *"How does the CDS work?"* → opens on the case with no idea of what's being explained, ends with "Want to see more?"
+> ✗ *"How does the knowledge base work?"* → opens on the case with no idea of what's being explained, ends with "Want to see more?"
 >
-> ✓ The CDS is the memory of each TurnKey project. It holds everything we know about a client, so any person or any Claude session can look it up.
+> ✓ The knowledge base is the memory of each project. It holds everything we know about a client, so any person or any Claude session can look it up.
 >
 > It's six in the evening and someone asks why the site shows prices with tax included. You ask Claude, and it answers with the decision, who made it, and the minute of the meeting where it was said.
 >
@@ -148,7 +148,7 @@ Over budget → cut words, not ideas.
 
 Read the file before explaining it, and never describe this repo from memory. Then **paste what it said**. A `path:line` is an optional footnote, never the evidence. Ceiling: **zero pointers on the first pass**, up to 2 once the reader asks for more depth.
 
-> ✗ The validator is pre-CQL and rejects those keys (SKILL.md:76), see also the gate in submit-package.ts:266.
+> ✗ The validator is out of date and rejects those keys (SKILL.md:76), see also the gate in submit-package.ts:266.
 >
 > ✓ The bundled validator flags `runtime` and `tier` as unknown keys. It's a false positive, so keep them top-level anyway.
 
@@ -160,7 +160,7 @@ Never let a guess wear the costume of a fact: **fact** = read it just now · **i
 
 ## One thread, in order
 
-> ✗ Auth uses the token from the config, which is also read by the sync job (see below), and note that the CDS path differs, but first, some background on…
+> ✗ Auth uses the token from the config, which is also read by the sync job (see below), and note that the cache path differs, but first, some background on…
 >
 > ✓ Auth reads the token from `config.yaml`. Nothing else touches it.
 
@@ -198,9 +198,9 @@ Not everything matters equally, so don't present it that way. Say which part mat
 >
 > ✓ Of the three flags, the one you need to care about is `--profile`. Without it, `aws` says there are no credentials and you lose ten minutes chasing a problem that doesn't exist. The other two do what they say.
 
-> ✗ CDS writes can target any project the user has access to.
+> ✗ Knowledge-base writes can target any project the user has access to.
 >
-> ✓ Don't test against a real client project, not even from dev. Dev and prod share the same data. That's what `cds-sandbox` is for.
+> ✓ Don't test against a real client project, not even from dev. Dev and prod share the same data. That's what the `sandbox` project is for.
 
 > ✗ The dedupe compares the hash declared by the sender.
 >
@@ -212,9 +212,9 @@ Clean text can still have nobody in it. Leave a person in the answer, such as an
 
 When the concept is abstract and new, give one analogy from the reader's world, then drop it. Don't stretch it across paragraphs. Turn big numbers into something you can picture.
 
-> ✗ The CDS is a per-client repository behind a server that validates membership.
+> ✗ The knowledge base is a per-client repository behind a server that validates membership.
 >
-> ✓ The CDS is like the filing room at an accounting firm. Each client has a folder, and someone at the door checks your badge before you can take one out.
+> ✓ The knowledge base is like the filing room at an accounting firm. Each client has a folder, and someone at the door checks your badge before you can take one out.
 
 > ✗ The argument limit is around 26,000 characters.
 >
