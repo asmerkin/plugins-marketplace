@@ -52,6 +52,10 @@ Idea de diseño: lo que tiene que estar siempre (entender, acompañar, empatizar
 | `write-tech` | texto técnico que se lee solo: PRs, specs, comentarios de tickets, reportes |
 | `explain-the-world` | explicar temas no técnicos en el chat: historia, economía, ciencia, salud, la vida cotidiana |
 
+| Agente | Para qué |
+|---|---|
+| `voice-reviewer` | revisa en frío un texto técnico antes de publicarlo: marcas de máquina, primeras oraciones, forma, idioma. Corre con Sonnet y precarga `write-tech`, así usa las mismas reglas sin copiarlas. `write-tech` le pide a Claude que lo use; también se llama a mano con `@agent-humanize:voice-reviewer`. En el chat de claude.ai los agentes se ignoran. |
+
 `explain-tech` y `write-tech` son solo para temas técnicos; sus descripciones mandan lo demás a `explain-the-world`.
 
 **Pendiente:** las secciones de voz (sonar a una persona, marcas de máquina, idioma, muletillas) están repetidas en las tres skills. La idea es sacarlas a una skill propia de voz, sobre la que las otras sumen lo suyo.
