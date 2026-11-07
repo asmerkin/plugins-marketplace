@@ -5,7 +5,7 @@ Marketplace de plugins de Claude Code.
 ## Instalar
 
 ```
-/plugin marketplace add <owner>/skills
+/plugin marketplace add asmerkin/plugins-marketplace
 /plugin install personal@asmerkin
 ```
 
