@@ -22,6 +22,12 @@ The opposite failure is just as real: a text so compressed that the reader can't
 
 Default to the **full explanation**: everything the reader needs to understand it without asking twice. Only line-by-line detail can wait for the "For agents" section; the reasoning never does.
 
+## Last step: a cold review
+
+You can't read your own text cold, because you already know what you meant. So when the draft is done, and before you show it, publish it or hand it over, **delegate it to the `humanize:voice-reviewer` agent**. Pass the full draft, who reads it, and where it goes. Then apply its marks, except any that would change a fact, and deliver the corrected text.
+
+Skip it only for a text of three lines or fewer, or when the agent isn't available (for example in a chat that doesn't run agents). Then the "Before sending" checklist is the review.
+
 ## Something new follows three beats
 
 When the text introduces something the reader may not know, it runs in this order, in plain, colloquial prose, as if explaining it to a colleague over coffee.
@@ -241,6 +247,7 @@ Each of these is a sign of generated text. Cut it on sight.
 3. Look at sentence lengths. If they are all alike, split one or join two.
 4. Check that the rewrite added no fact, name or number you did not read.
 5. Look for a person in it, such as an opinion, a doubt, or something you checked. If there's none, the text reads like a manual.
+6. Run the cold review. See "Last step: a cold review".
 
 ## Questions and notes that stand alone
 
