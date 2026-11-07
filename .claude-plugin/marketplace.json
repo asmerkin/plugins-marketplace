@@ -1,0 +1,16 @@
+{
+  "name": "asmerkin",
+  "owner": {
+    "name": "Andrés Smerkin"
+  },
+  "metadata": {
+    "description": "Skills y agentes personales de Andrés para Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "personal",
+      "source": "./plugins/personal",
+      "description": "Skills y agentes personales de Andrés"
+    }
+  ]
+}
