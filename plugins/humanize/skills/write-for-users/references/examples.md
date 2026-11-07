@@ -134,16 +134,17 @@ This one stays in Spanish because the failure is Spanish.
 
 What gives it away:
 - "logueate", "clickeá", "seteá", "uploadeá", hybrid verbs nobody writes in a manual
+- voseo ("clickeá", "seteá"), which ties the manual to one region
 - "dashboard" and "Products", when the screen says "Panel" and "Productos"
 - "el sistema se encarga de", which hides when the change shows up
 
 **Después:**
-> 1. En el **Panel**, hacé clic en **Productos**.
-> 2. Abrí el producto.
-> 3. En **Variantes**, hacé clic en la variante.
-> 4. En **Imagen**, hacé clic en **Reemplazar** y elegí el archivo nuevo.
-> 5. Hacé clic en **Guardar**.
+> 1. En el **Panel**, haz clic en **Productos**.
+> 2. Abre el producto.
+> 3. En **Variantes**, haz clic en la variante.
+> 4. En **Imagen**, haz clic en **Reemplazar** y elige el archivo nuevo.
+> 5. Haz clic en **Guardar**.
 >
 > La tienda muestra la imagen nueva en 15 minutos como máximo.
 
-The labels are the screen's own, the verbs are plain Spanish, and "el sistema se encarga" became the number the reader cares about. It uses "vos" because the screens of this product do; if they used "usted", so would the guide.
+The labels are the screen's own, the verbs are plain neutral Spanish with "tú", and "el sistema se encarga" became the number the reader cares about.

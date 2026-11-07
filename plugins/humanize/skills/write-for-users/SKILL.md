@@ -112,7 +112,9 @@ Put one where the reader is most likely to get lost, usually the first screen of
 
 Talk to the reader directly, in the second person, like a colleague showing them how it's done. Warm, short and specific. No jokes about errors: the reader who opened that page is already annoyed.
 
-- **Use the form of address the product uses.** If the screens say "vos", the guide says "vos". If they say "usted", the guide does too. Check the screen texts; don't assume.
+- **Neutral language, with no region.** A manual is read in many countries, so it uses the neutral form of its language: no regional forms of address, no slang, no idioms. Use a regional variant only when the person who asks for the text says so. This rule is for the document only: your messages to the person who asked for it keep the register of the conversation.
+- **Spanish: "tú", neutral.** "Haz clic", "abre", "puedes". Never "vos" ("hacé clic") and never "vosotros" ("haced clic"). Prefer words understood everywhere: "computadora o equipo", not only "ordenador" or only "compu".
+- **English: plain international English.** "You", no idioms ("hit the ground running", "a piece of cake"), and one spelling, American or British, used consistently.
 - **No "just", "simply" or "easily".** If it were easy for this reader, they wouldn't be reading. And if it doesn't work for them, those words make it their fault.
 - **No brochure words.** "Powerful", "seamless", "intuitive", "robust", "game-changing". Say what it does.
 
@@ -152,12 +154,13 @@ Spanish shows the failure most often. These pairs stay in Spanish because the fa
 
 | ✗ | ✓ |
 |---|---|
-| clickeá en Guardar | hacé clic en **Guardar** |
-| logueate con tu usuario | iniciá sesión con tu usuario |
-| seteá la opción | configurá la opción |
+| clickea en Guardar | haz clic en **Guardar** |
+| loguéate con tu usuario | inicia sesión con tu usuario |
+| setea la opción | configura la opción |
 | el sistema se encarga de sincronizar | los cambios llegan a la tienda en 15 minutos |
-| uploadeá la imagen | subí la imagen |
+| uploadea la imagen | sube la imagen |
 | el dashboard *(cuando la pantalla dice "Panel")* | el **Panel** |
+| hacé clic / abrí / podés *(voseo)* | haz clic / abre / puedes |
 
 **One language per sentence.** A screen label in English inside a Spanish sentence is fine, because it's what the reader sees. A hybrid verb is not.
 
@@ -169,7 +172,8 @@ Spanish shows the failure most often. These pairs stay in Spanish because the fa
 4. Each step has one action, and the place comes before the action.
 5. The title says the task the way the user would say it.
 6. No "just", "simply", "easily", and no brochure words.
-7. Run the cold review. See "Last step: a cold review".
+7. Neutral language: in Spanish, "tú" and no voseo; in English, no idioms and one spelling.
+8. Run the cold review. See "Last step: a cold review".
 
 ## Last step: a cold review
 

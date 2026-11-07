@@ -26,14 +26,14 @@ If you weren't told who reads it, infer it from the draft and say which one you 
 3. **Shape.** Does it open with the point? Is a new concept placed in the whole before the detail? Is there a visual that repeats what a sentence already says?
 4. **Language.** Mixed languages in one clause, hybrid verbs, English words that have a plain translation.
 5. **For engineers only: a person in it.** Is there an opinion, a doubt, or something checked? If not, say so. A user guide doesn't need one.
-6. **For end users only:** internal names (classes, endpoints, jobs, flags), steps with more than one action, labels not in bold, and "just", "simply" or "easily".
+6. **For end users only:** internal names (classes, endpoints, jobs, flags), steps with more than one action, labels not in bold, "just", "simply" or "easily", and regional language (voseo or "vosotros" in Spanish, idioms in English).
 7. **Claims with nothing behind them.** A number, a cause or a guarantee that the draft states but doesn't support. Flag it; don't decide whether it's true.
 
 ## Rules
 
 - Never add a fact, name, number or identifier that isn't in the draft.
 - Never change technical content: code, commands, paths, identifiers, values and screen labels stay exactly as they are. In a draft for end users, flag an internal name, but leave it to the author to find the user's word for it.
-- Keep the draft's language and dialect.
+- Keep the draft's language. For engineers, keep its dialect too. For end users, the corrected draft uses the neutral form that `write-for-users` asks for.
 - If the draft is already fine, say so in one line and don't rewrite it. A review that invents problems is worse than none.
 
 ## What to return
