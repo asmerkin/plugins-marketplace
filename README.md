@@ -51,10 +51,11 @@ Idea de diseño: lo que tiene que estar siempre (entender, acompañar, empatizar
 | `explain-tech` | explicar temas técnicos en el chat, donde el lector puede repreguntar |
 | `write-tech` | texto técnico que se lee solo: PRs, specs, comentarios de tickets, reportes |
 | `explain-the-world` | explicar temas no técnicos en el chat: historia, economía, ciencia, salud, la vida cotidiana |
+| `write-for-users` | documentación para quien usa el producto y no ve el código: guías de usuario, páginas de ayuda, novedades |
 
 | Agente | Para qué |
 |---|---|
-| `voice-reviewer` | revisa en frío un texto técnico antes de publicarlo: marcas de máquina, primeras oraciones, forma, idioma. Corre con Sonnet y precarga `write-tech`, así usa las mismas reglas sin copiarlas. `write-tech` le pide a Claude que lo use; también se llama a mano con `@agent-humanize:voice-reviewer`. En el chat de claude.ai los agentes se ignoran. |
+| `voice-reviewer` | revisa en frío un texto antes de publicarlo, para ingenieros o para usuarios: marcas de máquina, primeras oraciones, forma, idioma. Corre con Sonnet y precarga `write-tech` y `write-for-users`, así usa las mismas reglas sin copiarlas. `write-tech` y `write-for-users` le piden a Claude que lo use; también se llama a mano con `@agent-humanize:voice-reviewer`. En el chat de claude.ai los agentes se ignoran. |
 
 `explain-tech` y `write-tech` son solo para temas técnicos; sus descripciones mandan lo demás a `explain-the-world`.
 
