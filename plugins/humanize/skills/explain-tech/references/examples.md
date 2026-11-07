@@ -156,7 +156,7 @@ Both paragraphs are accurate. Both are unreadable.
 **Before (soup + fan-out):**
 > The "package" is literally the skill directory zipped. `package_skill.py` is an accelerator, not a requirement (SKILL.md:74): it produces a `.skill` that's the same zip with another extension, and it depends on PyYAML; if it doesn't run, zip the directory and move on.
 >
-> Watch out for the trap documented in SKILL.md:76: the bundled validator (`quick_validate.py`) is pre-CQL and complains about `runtime`/`emits`/`reads`/`tier` as "unknown frontmatter keys". Ignore that specific complaint and keep them top-level; the library's real pre-screen requires them there, and nesting them under `metadata:` fails the real gate.
+> Watch out for the trap documented in SKILL.md:76: the bundled validator (`quick_validate.py`) is out of date and complains about `runtime`/`emits`/`reads`/`tier` as "unknown frontmatter keys". Ignore that specific complaint and keep them top-level; the library's real pre-screen requires them there, and nesting them under `metadata:` fails the real gate.
 
 What broke:
 - three `SKILL.md:NN` pointers acting as credentials for claims that needed none
@@ -205,7 +205,7 @@ Note the second fix too. The "before" is one dense sentence carrying three ideas
 
 The reader's correction (translated): "you make lots of diagrams, for things where they sometimes don't make much sense."
 
-**Before** (the tail of an answer on CDS ingest, after a big flow diagram and a states table):
+**Before** (the tail of an answer on knowledge-base ingest, after a big flow diagram and a states table):
 > After it lands, each `.ref` moves through these states:
 >
 > ```
@@ -253,7 +253,7 @@ Note: the "before" is a correct inventory. The "after" picks the one thing that 
 > A lane claim is a row in `wiki-work-in-progress.md` with owner, scope and `Expires`, reserving a server tree to prevent concurrent writers.
 
 **After:**
-> A lane claim is a notice that you're working on one of TurnKey's servers. It's there so two people don't edit the same code at the same time.
+> A lane claim is a notice that you're working on one of the repo's servers. It's there so two people don't edit the same code at the same time.
 >
 > It's like leaving your towel on a beach chair. Nobody stops you from sitting down, but you see it's taken and you ask first.
 >
@@ -292,19 +292,19 @@ Two sentences carry everything the five did. Nothing was added, and what was cut
 
 The reader's correction (translated), after the "before" below: "before the example, I want you to give an introduction to what the concept is, then the example, then the full explanation, and finally a couple of smart questions to ask next, to guide the flow of the explanation."
 
-**Q:** "Explain how TurnKey's CDS works."
+**Q:** "Explain how the project knowledge base works."
 
 **Before (opens on the case, ends on a vague offer):**
 > It's six in the evening and someone on the team asks why the site shows prices with tax included. You ask Claude, and it answers with the decision, who made it, and the exact minute of the recording.
 >
-> That comes from the CDS. Think of it as the filing room at an accounting firm…
+> That comes from the knowledge base. Think of it as the filing room at an accounting firm…
 >
 > Want to see what happens when a transcript comes in?
 
 The case is good, but the reader spends the first paragraph without knowing what is being explained. And the single closing offer leaves the next step to chance.
 
 **After:**
-> The CDS is the memory of each TurnKey project. It holds everything we know about a client, so any person or any Claude session can look it up.
+> The knowledge base is the memory of each project. It holds everything we know about a client, so any person or any Claude session can look it up.
 >
 > It's six in the evening and someone asks why the site shows prices with tax included. You ask Claude, and it answers with the decision, who made it and, if it came out of a meeting, the exact minute of the recording.
 >
@@ -314,7 +314,7 @@ The case is good, but the reader spends the first paragraph without knowing what
 >
 > The server never calls a model. Your Claude session brings the intelligence, and the server only stores. Every write is a commit in your name.
 >
-> One trap. Dev and prod share the same data, so use `cds-sandbox` for testing.
+> One trap. Dev and prod share the same data, so use the `sandbox` project for testing.
 >
 > **Next questions**
 > - What happens when a meeting transcript comes in?
@@ -379,24 +379,24 @@ What changed: the same facts, plus the steps between them. It explains how it wa
 
 The reader's correction (translated): "when I ask you to explain something, also consider some context to understand the problem within the whole, and what we want to solve."
 
-**Q:** "Explain this PR." *(a PR that adds image sync results to a Shopify ↔ KWI bridge)*
+**Q:** "Explain this PR." *(a PR that adds image sync results to a Shopify ↔ inventory-system bridge)*
 
 **Before (the parts, with nothing to hang them on):**
-> The PR adds an `ImageSyncResultCode` enum with six cases, refactors `UpdateProduct` to return a code per variant, adds a `SaveImageSyncResults` job that upserts into a new `image_sync_results` table, a `GET /api/admin/kwi/variants/{id}/image-sync-result` endpoint, and an admin block extension on the variant page.
+> The PR adds an `ImageSyncResultCode` enum with six cases, refactors `UpdateProduct` to return a code per variant, adds a `SaveImageSyncResults` job that upserts into a new `image_sync_results` table, a `GET /api/admin/inventory/variants/{id}/image-sync-result` endpoint, and an admin block extension on the variant page.
 
 Every item is accurate. The reader still doesn't know what system this is, what the job did before, or why anyone needed a table of results.
 
 **After:**
-> This repo is a bridge between KWI, the store's inventory system, and Shopify. Product images flow one way: when a product changes in Shopify, a job copies each variant's image URL into KWI.
+> This repo is a bridge between the store's inventory system and Shopify. Product images flow one way: when a product changes in Shopify, a job copies each variant's image URL into the inventory system.
 >
-> Today that job makes a decision per variant, such as update it, skip it because the image is the same, or leave it because someone set a non-Shopify image by hand. Every decision only goes to the log, and variants missing from KWI vanish without a trace:
+> Today that job makes a decision per variant, such as update it, skip it because the image is the same, or leave it because someone set a non-Shopify image by hand. Every decision only goes to the log, and variants missing from the inventory system vanish without a trace:
 >
 > ```php
 > logger()->debug('Skipping variant: non-Shopify image locked', ['upc' => $variant->upc]);
 > return;
 > ```
 >
-> So when a KWI image is wrong, staff ask a developer to dig through logs. The PR fixes that. Each `return` now hands back a result code, the job saves one row per variant at the end, and a card on the variant page in the Shopify admin shows the latest one.
+> So when an inventory image is wrong, staff ask a developer to dig through logs. The PR fixes that. Each `return` now hands back a result code, the job saves one row per variant at the end, and a card on the variant page in the Shopify admin shows the latest one.
 >
 > One trap explains a design choice. Saving the result as a Shopify metafield would fire `products/update`, which queues the same job again, so the results live in the app's own table.
 >

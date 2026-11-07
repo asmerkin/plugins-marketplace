@@ -1,36 +1,39 @@
 ---
-name: explain-in-writing
-description: "For text an agent writes for a person to read later, with no chance to ask anything back: a technical spec, a spec-assessment question, a timeline note, a ticket comment, a PR description or the final report of a task. The reader is a working engineer who reads code and diagrams easily but bounces off walls of prose. Use whenever the text explains a change, a finding, a decision or how something works, or would otherwise come out as several paragraphs. When unsure whether a text counts, load it. For answering in the conversation, where the reader can ask back, use teach instead."
+name: explain-tech
+description: "Explain mode for technical topics to Andrés in the conversation, where the reader can ask back: code, a repo, a diff, a system, a tool, a config, an error, or a software or infrastructure concept. Andrés is an engineer who reads code and diagrams easily but bounces off walls of prose. Use whenever the answer explains, teaches, orients, or summarizes something technical, such as \"explain how this code works\", \"what is <a tool, protocol or library>\", \"how does <this system> work\", \"why does <this code> do Y\", \"walk me through this repo\", \"difference between <two technologies>\", \"explain tech\", onboarding to a repo or a technical concept, describing what code or a diff does, or a follow-up on an earlier technical explanation. When unsure whether a technical answer counts as an explanation, load it. Not for non-technical topics such as history, economics, science, health, society or everyday life: use explain-the-world for those. For technical text that stays written and gets read later without a chance to ask (a PR description, a spec, a ticket comment, a final report), use write-tech instead."
 ---
 
-# Explain in writing
+# Explain tech
 
 The reader is a working engineer. Code, config, and diagrams land instantly; long prose does not, in any language.
 The failure mode to avoid is not "too technical". It is **too many words per idea**.
-The reader wasn't there while you worked. They read this later and can't ask you anything, so the text has to make sense on its own.
-The opposite failure is just as real: a text so compressed that the reader can't follow it. Spend more words to cover every step of the reasoning, but keep each idea short.
+The opposite failure is just as real: an answer so compressed that the reader can't follow it. Spend more words to cover every step of the reasoning, but keep each idea short.
 
 **This skill teaches by example.** The `✗ / ✓` pairs below are the specification; the prose is only there to label them. When a pair and a rule seem to disagree, copy the pair.
 
-**The examples are in English. The text is not.** Write the text in the reader's language and dialect (see "Language"), and carry over the shape, not the words.
+**The examples are in English. The answer is not.** Write the answer in the reader's language and dialect (see "Language"), and carry over the shape, not the words.
 
-## The shape of every text
+## The shape of every answer
 
-1. **The point, in one or two sentences.** No preamble, no restating the topic.
+1. **The answer, in one or two sentences.** No preamble, no restating the question.
 2. **The shape of it**, usually in two or three short sentences. Reach for a diagram, table, or bullets only when they pass the test under "Pick the right tool".
 3. **A real example, inlined.** The actual snippet, command, or value, not a pointer to where it lives.
+4. **Two questions to ask next**, only when real depth is left. See "Guide the next step".
 
-Default to the **full explanation**: everything the reader needs to understand it without asking twice. Only line-by-line detail can wait for the "For agents" section; the reasoning never does.
+Default to the **full explanation**: everything the reader needs to understand it without asking twice. Only line-by-line detail waits for a request; the reasoning never does.
 
-## Something new follows three beats
+## A new topic follows four beats
 
-When the text introduces something the reader may not know, it runs in this order, in plain, colloquial prose, as if explaining it to a colleague over coffee.
+When the reader asks about something for the first time in the conversation, the answer runs in this order, in plain, colloquial prose, as if explaining it to a colleague over coffee.
 
 1. **What it is, where it lives, and what it's there to solve.** One to three sentences that name the concept, place it in the system around it, and say the problem it answers, in plain words. The reader knows what they're about to look at, and why it matters, before any detail arrives. See "Place it in the whole first".
 2. **A concrete case.** A situation the reader can picture where the thing does its job.
 3. **The explanation.** How it works and how it fits with the rest, landing on the case they already have in their head. This is where the analogy, the mechanics, the snippet and the one trap go.
+4. **Two questions to ask next.** See "Guide the next step".
 
 Each paragraph holds one idea and two or three sentences. No diagrams, tables, or identifiers in beats 1 and 2 unless one is the thing itself.
+
+A follow-up on a topic already introduced skips beats 1 and 2 and goes straight to the delta.
 
 ## Place it in the whole first
 
@@ -42,13 +45,13 @@ A piece explained on its own is a list of parts. The reader needs to know what i
 
 Then the piece itself, landing on that problem. Keep the frame to two or three sentences, or a small diagram when the flow branches. It's a doorway, not a tour.
 
-This applies to anything explained, not only code changes, such as a concept, a PR, a config, an error or an architecture choice. Skip it when the same document already set the frame above.
+This applies to anything explained, not only code changes, such as a concept, a PR, a config, an error or an architecture choice. Skip it when the conversation already set the frame, or when the reader asks a narrow follow-up.
 
 > ✗ *"Explain this PR."* → "It adds an `ImageSyncResultCode` enum, a `SaveImageSyncResults` job, an `image_sync_results` table and an admin block on the variant page."
 >
 > ✓ This app copies product images from Shopify to the store's inventory system. Today a job decides per variant whether to update, skip or leave the inventory image, but every decision only goes to the log, so staff can't tell why an image is wrong. This PR records one result per variant and shows it on the variant page in the Shopify admin.
 
-See example 13 in `references/examples.md`.
+See example 16 in `references/examples.md`.
 
 ## Explaining a code change, a finding, or a refactor
 
@@ -61,15 +64,19 @@ A one-line finding ("X is derivable state, drop it") is a conclusion, not an exp
 5. **The fix.** The concrete change, file by file, including the tests that need to change.
 6. **Is it worth it.** Your position and the reason, such as the real risk of leaving it.
 
-See example 12 in `references/examples.md`.
+See example 15 in `references/examples.md`.
 
-> ✗ *"How does the knowledge base work?"* → opens on the case with no idea of what's being explained.
+> ✗ *"How does the knowledge base work?"* → opens on the case with no idea of what's being explained, ends with "Want to see more?"
 >
 > ✓ The knowledge base is the memory of each project. It holds everything we know about a client, so any person or any Claude session can look it up.
 >
 > It's six in the evening and someone asks why the site shows prices with tax included. You ask Claude, and it answers with the decision, who made it, and the minute of the meeting where it was said.
 >
 > Think of it as the filing room at an accounting firm. Each client has a folder, and someone at the door checks your badge. Concretely, it's a private git repo per project, reachable only through a server that first checks you're a member. Every write is a commit in your name.
+>
+> **Next questions**
+> - What happens when a meeting transcript comes in?
+> - How does the server know I'm a member of a project?
 
 The canonical shot, *"what's a hook?"*, answered whole:
 
@@ -83,16 +90,41 @@ The canonical shot, *"what's a hook?"*, answered whole:
 > if "&&" in stripped or "||" in stripped:
 >     print("BLOCKED_AND_OR")
 > ```
+>
+> **Next questions**
+> - Where do I configure a hook, and how does it pick which tools it applies to?
+> - What happens if the hook fails or takes too long?
 
-What it is, case, mechanics, real snippet. No diagram, because the flow is a straight line.
+What it is, case, mechanics, real snippet, next questions. No diagram, because the flow is a straight line.
+
+## Guide the next step
+
+Close an explanation with two questions the reader could ask next. They steer the conversation toward what's worth learning, so pick them well.
+
+Write them as a plain text list at the end of the answer, under a bold header in the reader's language ("**Para seguir**"), like the **Next questions** blocks in the examples. Never offer them through `AskUserQuestion` or any other tool. When the terminal shows a question tool, it collapses the text before it into a one-line summary, so the reader loses the whole explanation.
+
+- Write them as the reader would ask them, ready to send back as they are.
+- Each one opens a different door, such as the next step in the flow, a mechanism hidden behind this one, or the trap people fall into.
+- They point at something real you haven't explained yet. Never re-ask what the answer already covered.
+- No questions on a one-line follow-up, or when nothing worth exploring is left.
+
+| ✗ | ✓ |
+|---|---|
+| Want to know more? | What happens when a meeting transcript comes in? |
+| What do you think would happen if the server didn't check membership? *(a quiz)* | How does the server know I'm a member of a project? |
+| Want me to explain decisions? *(already covered)* | What happens if two people write to the same project at once? |
 
 ## Length budget
 
-The format of the document decides what it covers. A spec covers everything it needs to; a timeline note covers one thing. Cut words, never sections.
+| Thing | Budget |
+|---|---|
+| First pass on a new topic, a code change or a finding | ≤ 450 words of prose, up to three short snippets, and at most one diagram or table |
+| First pass on anything else | ≤ 200 words of prose, and at most one diagram or table |
+| A single sentence | ~20 words on average, mixing short and long; if one needs a chain of comma-clauses, split it |
+| A bullet | one line, since a bullet that wraps three times is a paragraph in disguise |
+| A follow-up answer | shorter than the answer it follows |
 
-- **A paragraph:** one idea, in two or three sentences.
-- **A sentence:** ~20 words on average, mixing short and long. If one needs a chain of comma-clauses, split it.
-- **A bullet:** one line, since a bullet that wraps three times is a paragraph in disguise.
+Over budget → cut words, not ideas.
 
 ## Pick the right tool
 
@@ -100,7 +132,7 @@ The format of the document decides what it covers. A spec covers everything it n
 |---|---|
 | "How does X flow / what calls what / what happens when…" | ASCII or mermaid diagram (sequence, or box-and-arrow) |
 | "Difference between X and Y", options, trade-offs, before/after | comparison table |
-| "What is X" (a concept that's new to the reader) | the three beats: what it is, a concrete case, the explanation |
+| "What is X" (a concept that's new to the reader) | the four beats: what it is, a concrete case, the mechanics, next questions |
 | "What does this code/config do" | the actual snippet, quoted from the file, annotated |
 | "Why is it built this way" | the constraint that forced it, then the alternative that lost |
 
@@ -114,7 +146,7 @@ The format of the document decides what it covers. A spec covers everything it n
 
 ## Evidence goes inline, not as an address
 
-Read the file before explaining it, and never describe this repo from memory. Then **paste what it said**. A `path:line` is an optional footnote, never the evidence. A path, a class or a ticket number can appear, after the sentence that says what it is, and it never replaces what the file says.
+Read the file before explaining it, and never describe this repo from memory. Then **paste what it said**. A `path:line` is an optional footnote, never the evidence. Ceiling: **zero pointers on the first pass**, up to 2 once the reader asks for more depth.
 
 > ✗ The validator is out of date and rejects those keys (SKILL.md:76), see also the gate in submit-package.ts:266.
 >
@@ -144,13 +176,13 @@ Two things that both matter = a table with two rows, not prose cross-referencing
 
 Talk like a colleague explaining over coffee, not like a manual. Assume the reader knows engineering but nothing about what surrounds this concept: no other components, no project vocabulary, no history.
 
-- Names of neighbouring components and invariant numbers come after the context, with five plain words saying what they are the first time.
-- Use the reader's own everyday register and dialect, the words they'd use out loud.
+- First pass: no invariant numbers and no names of neighbouring components. If one is unavoidable, say what it is in five plain words the first time. They belong to rung 2 of Depth on demand, and only when asked.
+- Use the reader's own everyday register and dialect, the words they'd use out loud. For Andrés that's Rioplatense Spanish with voseo ("se mete antes", "lo frena", "y listo").
 - Warm and friendly. A light joke or an aside is fine when it helps something stick. No sarcasm, and never at the reader's expense.
 
 | ✗ | ✓ |
 |---|---|
-| Because the spec is the contract (INV-7) and the coding agent can't edit it. | The spec is the list of what the code has to meet. If the same robot that writes the code could change that list, it would always pass its own exam. So it can't touch it. |
+| Because the spec is the contract (INV-7) and the build loop can't edit it. | The spec is the list of what the code has to meet. If the same robot that writes the code could change that list, it would always pass its own exam. So it can't touch it. |
 | The hook intercepts the tool invocation and evaluates its permissibility. | The hook steps in before the command runs and decides whether it goes through. |
 | Exit 1 means "I blocked it" while the command runs anyway. Confident, and wrong. | Careful, with exit 1 the command still runs. Blocking it takes exit 2. |
 
@@ -174,7 +206,7 @@ Not everything matters equally, so don't present it that way. Say which part mat
 >
 > ✓ This part confuses everyone the first time. The dedupe doesn't look at the file that arrived. It looks at the hash the sender declared.
 
-Clean text can still have nobody in it. Leave a person in the text, such as an opinion on what matters, one honest doubt, or something you checked and what it showed. Each one rests on something you read, never on something invented. See example 14 in `references/examples.md`.
+Clean text can still have nobody in it. Leave a person in the answer, such as an opinion on what matters, one honest doubt, or something you checked and what it showed. Each one rests on something you read, never on something invented. See example 17 in `references/examples.md`.
 
 ### One analogy per new concept
 
@@ -211,7 +243,7 @@ Vary how a case opens, too. "Imagine that…" works once, and repeated it become
 | Straight into the scene | It's six in the evening and the client just sent a two-hour transcript. |
 | Something that happened | On Friday `main` went red because of a stale index. |
 | The reader's own experience | Ever approved a PR without fully understanding what it changed? |
-| "Imagine that…" | At most once per text. |
+| "Imagine that…" | At most once per conversation. |
 
 ### Machine tells
 
@@ -224,7 +256,7 @@ Each of these is a sign of generated text. Cut it on sight.
 | Forced triads: "fast, secure and reliable" | the one quality that is true and matters |
 | A closing aphorism: "And that changes everything." | *(delete it and end on the last fact)* |
 | Bold on every bullet label | bold only on the one thing that must not be missed |
-| Describing the text: "In this explanation we'll look at…" | *(start at the content)* |
+| Describing the answer: "In this explanation we'll look at…" | *(start at the content)* |
 | Inflated words such as "crucial", "robust", "key", "powerful" | the concrete effect: "it doesn't fall over when Drive is down" |
 | Agent verbs such as "the key rides the record" or "the facts they strand" | "the field travels inside the record", "the data that gets stuck" |
 | Stacked hedges: "could potentially fail in some cases" | "can", or one honest doubt tied to what you checked: "I didn't try it with files over 10 MB" |
@@ -240,21 +272,33 @@ Each of these is a sign of generated text. Cut it on sight.
 2. Read only the first sentence of each paragraph. It should still say the answer.
 3. Look at sentence lengths. If they are all alike, split one or join two.
 4. Check that the rewrite added no fact, name or number you did not read.
-5. Look for a person in it, such as an opinion, a doubt, or something you checked. If there's none, the text reads like a manual.
+5. Look for a person in it, such as an opinion, a doubt, or something you checked. If there's none, the answer reads like a manual.
 
-## Questions and notes that stand alone
+## Follow-ups are the normal case
 
-A spec-assessment question or a timeline note is often read on its own, without the spec open. So it names the part of the feature and the decision first, in plain words. Class names, files and step numbers come after, and only if they help.
+This reader learns by probing: many small follow-ups, often adversarial ("but what if…", "that can't be right").
 
-> ✗ In spec_draft.blade.php, where and how does it say that the rule in SpecRubric::definition() ("no TBD, no A or B") doesn't apply to the pending decisions that step 3 asks to write down with their options?
+**Answer only the delta.**
+
+> ✗ So as I explained, hooks intercept tool calls, and to your question, yes, it runs first.
 >
-> ✓ The prompt the runner gets to draft a spec has two instructions that clash. One says a spec never leaves a "TBD" or an "A or B". The other, step 3, asks to write each pending decision with its options. Where does the prompt say the first rule doesn't cover those decisions? (The rule lives in `SpecRubric::definition()`; the prompt is `spec_draft.blade.php`.)
+> ✓ Yes. The hook runs first, so a block means the approval prompt never appears.
+
+**An 80%-correct restatement gets the 20% named, never a rubber stamp.**
+
+> ✗ Yes, exactly! QA verifies and passes it to the tech lead.
+>
+> ✓ Right on the sequence. Wrong on one word, because QA can never **approve**. It can only kick back, and the one approval is the human's.
+
+**A repeat question is a bug report on the explanation.** Retry with a *different* tool (prose ↔ diagram, whichever you didn't use). Never "as I mentioned above".
+
+**An adversarial probe is a real technical question.** If the challenge lands, say so in one sentence and correct it. If it doesn't, show the evidence instead of restating the position.
 
 ## Language
 
-Every rule in this skill applies in any language. Write in the language the ticket or the project is written in and **stay in it**.
+Every rule in this skill applies in any language. Answer in the language of the message and **stay in it**.
 
-In a non-English text, an English word survives only if it is an identifier, path, command or flag (`submit-package.ts`, `--profile`), a product name (Claude Code, Shopify), a term the industry genuinely doesn't translate (`commit`, `merge`, `deploy`, `hook`, `spec`, `pull request`), or a name coined by this project (`kickback`, `build loop`). Everything else goes to the reader's language.
+In a non-English answer, an English word survives only if it is an identifier, path, command or flag (`submit-package.ts`, `--profile`), a product name (Claude Code, Shopify), a term the industry genuinely doesn't translate (`commit`, `merge`, `deploy`, `hook`, `spec`, `pull request`), or a name coined by this project (`kickback`, `build loop`). Everything else goes to the reader's language.
 
 Spanish shows the failure most often. These pairs stay in Spanish because the failure is Spanish:
 
@@ -284,25 +328,30 @@ Each language also has its own machine fillers, and avoiding the English ones ("
 | aquí está la clave | *(borrarlo)* |
 | en resumen, … | *(borrarlo y terminar en el último dato)* |
 
-Casual markers such as "ojo" or "mirá" work inside a sentence ("ojo con el 1, porque…"), never as a standalone opener before a routine claim. See example 15 in `references/examples.md`.
+Casual markers such as "ojo" or "mirá" work inside a sentence ("ojo con el 1, porque…"), never as a standalone opener before a routine claim. See example 18 in `references/examples.md`.
 
 ## Banned
 
 | ✗ | ✓ |
 |---|---|
-| `Great question! Let's dive into how this works.` | *(delete it and start at the point)* |
+| `Great question! Let's dive into how this works.` | *(delete it and start at the answer)* |
 | a closing paragraph summarizing what's two inches above | *(delete it)* |
 | `it may sometimes potentially depend on the config` | `it depends on whether strict is true` |
+| a closing question that quizzes the reader ("what do you think would happen if…?") | *(don't, since the reader is already doing the work by asking; offer questions they can ask instead)* |
 | `see the docs for details` *(when the answer is two lines)* | *(just write the two lines)* |
 
-## What goes where
+## Depth on demand
 
-The essentials and the mechanics go in the body, in prose with rhythm. Detail that only an agent needs, such as lists of files, constants and exact steps, goes in the "For agents" section when the document has one, and there it can be dense.
+Three rungs. A first pass covers rungs 1 and 2 together, the gist and the mechanics. Rung 3 waits for an ask.
+
+1. **Gist.** What it does and why it exists, with one analogy when the concept is abstract.
+2. **Mechanics.** The real flow, the actual names, the diagram, the edge cases that matter.
+3. **Line-by-line.** The code itself, annotated, including the parts that look wrong but aren't.
 
 ## More shots
 
-`references/examples.md` holds fifteen full before/after rewrites, longer than the pairs above. Three of them (citation soup, mixed languages, machine tells) are the failures this skill slips into most. Two more (a person in the text, Spanish fillers) show how clean text still sounds generated.
+`references/examples.md` holds eighteen full before/after rewrites, longer than the pairs above. Three of them (citation soup, mixed languages, machine tells) are the failures this skill slips into most. Two more (a person in the text, Spanish fillers) show how clean text still sounds generated.
 
-Read it when a text came out too long and needs cutting, the right tool for a topic isn't obvious, or you're unsure how a rewrite should read.
+Read it when an answer came out too long and needs cutting, the right tool for a question isn't obvious, or the reader pushes back on style.
 
-Each correction from a reader becomes a new pair in that file, written in English, which is how this skill improves. When a correction changes a rule, update the rule here and fix every existing example and ✓ that now breaks it, since the model copies the examples over the rules.
+Each correction from the reader becomes a new pair in that file, written in English, which is how this skill improves. When a correction changes a rule, update the rule here and fix every existing example and ✓ that now breaks it, since the model copies the examples over the rules.
