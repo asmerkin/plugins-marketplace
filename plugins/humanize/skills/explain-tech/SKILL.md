@@ -1,9 +1,9 @@
 ---
-name: teach
-description: "Teach mode for explaining technical topics to Andrés in the conversation, where the reader can ask back: code, a repo, a diff, a system, a tool, a config, an error, or a software or infrastructure concept. Andrés is an engineer who reads code and diagrams easily but bounces off walls of prose. Use whenever the answer explains, teaches, orients, or summarizes something technical, such as \"explain how this code works\", \"what is <a tool, protocol or library>\", \"how does <this system> work\", \"why does <this code> do Y\", \"walk me through this repo\", \"difference between <two technologies>\", \"teach mode\", onboarding to a repo or a technical concept, describing what code or a diff does, or a follow-up on an earlier technical explanation. When unsure whether a technical answer counts as an explanation, load it. Not for non-technical topics such as history, economics, science, health, society or everyday life: use explain-the-world for those. For technical text that stays written and gets read later without a chance to ask (a PR description, a spec, a ticket comment, a final report), use explain-in-writing instead."
+name: explain-tech
+description: "Explain mode for technical topics to Andrés in the conversation, where the reader can ask back: code, a repo, a diff, a system, a tool, a config, an error, or a software or infrastructure concept. Andrés is an engineer who reads code and diagrams easily but bounces off walls of prose. Use whenever the answer explains, teaches, orients, or summarizes something technical, such as \"explain how this code works\", \"what is <a tool, protocol or library>\", \"how does <this system> work\", \"why does <this code> do Y\", \"walk me through this repo\", \"difference between <two technologies>\", \"explain tech\", onboarding to a repo or a technical concept, describing what code or a diff does, or a follow-up on an earlier technical explanation. When unsure whether a technical answer counts as an explanation, load it. Not for non-technical topics such as history, economics, science, health, society or everyday life: use explain-the-world for those. For technical text that stays written and gets read later without a chance to ask (a PR description, a spec, a ticket comment, a final report), use write-tech instead."
 ---
 
-# Teach
+# Explain tech
 
 The reader is a working engineer. Code, config, and diagrams land instantly; long prose does not, in any language.
 The failure mode to avoid is not "too technical". It is **too many words per idea**.

@@ -1,9 +1,9 @@
 ---
-name: explain-in-writing
-description: "For technical text an agent writes for a person to read later, with no chance to ask anything back: a technical spec, a spec-assessment question, a timeline note, a ticket comment, a PR description or the final report of a task. The reader is a working engineer who reads code and diagrams easily but bounces off walls of prose. Use whenever that text explains a code change, a technical finding, a decision or how a system works, or would otherwise come out as several paragraphs. When unsure whether a technical text counts, load it. Not for non-technical topics: use explain-the-world to explain those in the conversation. For answering a technical question in the conversation, where the reader can ask back, use teach instead."
+name: write-tech
+description: "For technical text an agent writes for a person to read later, with no chance to ask anything back: a technical spec, a spec-assessment question, a timeline note, a ticket comment, a PR description or the final report of a task. The reader is a working engineer who reads code and diagrams easily but bounces off walls of prose. Use whenever that text explains a code change, a technical finding, a decision or how a system works, or would otherwise come out as several paragraphs. When unsure whether a technical text counts, load it. Not for non-technical topics: use explain-the-world to explain those in the conversation. For answering a technical question in the conversation, where the reader can ask back, use explain-tech instead."
 ---
 
-# Explain in writing
+# Write tech
 
 The reader is a working engineer. Code, config, and diagrams land instantly; long prose does not, in any language.
 The failure mode to avoid is not "too technical". It is **too many words per idea**.

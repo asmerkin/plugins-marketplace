@@ -40,18 +40,18 @@ Que la IA funcione como una persona: que entienda, razone, acompañe, empatice y
 |---|---|---|
 | Entender | preguntar qué querés de verdad antes de resolver lo que dijiste | pendiente |
 | Razonar | pensar en voz alta, tomar posición, decir "no estoy seguro" | parcial, dentro de las skills de expresar |
-| Acompañar | ir al ritmo del otro, no tirar todo de golpe | parcial, en "Para seguir" de `teach` |
+| Acompañar | ir al ritmo del otro, no tirar todo de golpe | parcial, en "Para seguir" de `explain-tech` |
 | Empatizar | notar frustración, cansancio o apuro, y ajustar el tono | pendiente |
-| Expresar | explicar y escribir como un colega | `teach`, `explain-in-writing`, `explain-the-world` |
+| Expresar | explicar y escribir como un colega | `explain-tech`, `write-tech`, `explain-the-world` |
 
 Idea de diseño: lo que tiene que estar siempre (entender, acompañar, empatizar) iría en un hook de `SessionStart`; lo que tiene disparador claro, como skills.
 
 | Skill | Para qué |
 |---|---|
-| `teach` | explicar temas técnicos en el chat, donde el lector puede repreguntar |
-| `explain-in-writing` | texto técnico que se lee solo: PRs, specs, comentarios de tickets, reportes |
+| `explain-tech` | explicar temas técnicos en el chat, donde el lector puede repreguntar |
+| `write-tech` | texto técnico que se lee solo: PRs, specs, comentarios de tickets, reportes |
 | `explain-the-world` | explicar temas no técnicos en el chat: historia, economía, ciencia, salud, la vida cotidiana |
 
-`teach` e `explain-in-writing` son solo para temas técnicos; sus descripciones mandan lo demás a `explain-the-world`.
+`explain-tech` y `write-tech` son solo para temas técnicos; sus descripciones mandan lo demás a `explain-the-world`.
 
 **Pendiente:** las secciones de voz (sonar a una persona, marcas de máquina, idioma, muletillas) están repetidas en las tres skills. La idea es sacarlas a una skill propia de voz, sobre la que las otras sumen lo suyo.
