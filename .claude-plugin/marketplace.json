@@ -8,9 +8,9 @@
   },
   "plugins": [
     {
-      "name": "personal",
-      "source": "./plugins/personal",
-      "description": "Skills y agentes personales de Andrés"
+      "name": "humanize",
+      "source": "./plugins/humanize",
+      "description": "Que la IA se comunique como una persona: que explique y escriba como un colega"
     }
   ]
 }
